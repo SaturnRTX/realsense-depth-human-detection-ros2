@@ -26,16 +26,17 @@ ROS 2 (Humble) Python package for Intel RealSense D456: real-time human detectio
 docker build -t intel-depth-detection .
 
 
-
+# on jetson
 docker run -it --rm \
---runtime nvidia \
---network host \
---privileged \
--v /dev:/dev \
---env ROS_DOMAIN_ID=0 \
-intel-depth-detection
+  --runtime nvidia \
+  --network host \
+  --privileged \
+  -v /dev:/dev \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  intel-depth-detection
 
-# or
+# or on non-jetson device
 
 docker run -it --rm \
   --gpus all \
