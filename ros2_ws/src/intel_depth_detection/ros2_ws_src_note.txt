@@ -1,0 +1,3 @@
+Note: This package is structured for ament_python usage. 
+If you later add message generation (msg/*.msg), you'll need to convert to ament_cmake or add a CMake build step to generate message headers.
+ For initial testing we publish JSON on std_msgs/String.
